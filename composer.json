@@ -1,0 +1,13 @@
+{
+    "name": "yoeunes/notify-symfony-toastr",
+    "license": "MIT",
+    "require": {
+        "yoeunes/notify-symfony": "@dev",
+        "yoeunes/notify-toastr": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yoeunes\\Notify\\Toastr\\Symfony\\": "src/"
+        }
+    }
+}
