@@ -14,17 +14,24 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('notify_toastr');
 
-        $treeBuilder->getRootNode()
+        if (\method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // BC layer for symfony/config 4.1 and older
+            $rootNode = $treeBuilder->root('notify_toastr');
+        }
+
+        $rootNode
             ->children()
                 ->arrayNode('scripts')
-                    ->scalarPrototype()->end()
+                    ->prototype('scalar')->end()
                     ->defaultValue([
-                        'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js',
+                        'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
                         'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js',
                     ])
                 ->end()
                 ->arrayNode('styles')
-                    ->scalarPrototype()->end()
+                    ->prototype('scalar')->end()
                     ->defaultValue([
                         'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css',
                         'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css'
