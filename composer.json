@@ -4,8 +4,8 @@
     "description": "Symfony Notify Toastr Bundle",
     "license": "MIT",
     "require": {
-        "yoeunes/notify-symfony": "@dev",
-        "yoeunes/notify-toastr": "@dev"
+        "yoeunes/notify-symfony": "^0.1",
+        "yoeunes/notify-toastr": "^0.1"
     },
     "autoload": {
         "psr-4": {
