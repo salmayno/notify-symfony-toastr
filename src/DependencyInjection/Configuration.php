@@ -33,7 +33,6 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('styles')
                     ->prototype('scalar')->end()
                     ->defaultValue([
-                        'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css',
                         'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css'
                     ])
                 ->end()

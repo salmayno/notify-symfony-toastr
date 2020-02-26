@@ -36,10 +36,10 @@ class NotifyToastrExtension extends Extension implements PrependExtensionInterfa
         $configs = $container->getExtensionConfig($this->getAlias());
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $container->prependExtensionConfig('notify', [
-            'notifiers' => [
+        $container->prependExtensionConfig('notify', array(
+            'notifiers' => array(
                 'toastr' => $config
-            ]
-        ]);
+            )
+        ));
     }
 }
