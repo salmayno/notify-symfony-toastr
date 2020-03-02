@@ -16,11 +16,11 @@ final class ConfigurationTest extends TestCase
             'notifier' => 'toastr',
             'scripts' => array(
                 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js'
+                'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js',
             ),
             'styles' => array(
-                'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css'
-            )
+                'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css',
+            ),
         ), $config);
     }
 
@@ -29,7 +29,7 @@ final class ConfigurationTest extends TestCase
         $config = $this->process(array(array(
             'scripts' => array(
                 'jquery.min.js',
-            )
+            ),
         )));
 
         $this->assertEquals(array(
@@ -38,8 +38,8 @@ final class ConfigurationTest extends TestCase
                 'jquery.min.js',
             ),
             'styles' => array(
-                'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css'
-            )
+                'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css',
+            ),
         ), $config);
     }
 

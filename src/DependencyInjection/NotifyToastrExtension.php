@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 final class NotifyToastrExtension extends Extension implements PrependExtensionInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      *
      * @throws \Exception
      */
@@ -25,7 +25,7 @@ final class NotifyToastrExtension extends Extension implements PrependExtensionI
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function prepend(ContainerBuilder $container)
     {
@@ -38,8 +38,8 @@ final class NotifyToastrExtension extends Extension implements PrependExtensionI
 
         $container->prependExtensionConfig('notify', array(
             'notifiers' => array(
-                'toastr' => $config
-            )
+                'toastr' => $config,
+            ),
         ));
     }
 }

@@ -28,7 +28,7 @@ final class NotifyToastrExtensionTest extends TestCase
         $container->loadFromExtension('notify_toastr', array(
             'scripts' => array('jquery.js', 'notify.js'),
             'styles' => array('bootstrap.css', 'notify.css'),
-            'options' => array()
+            'options' => array(),
         ));
         $container->compile();
 
@@ -39,7 +39,7 @@ final class NotifyToastrExtensionTest extends TestCase
         $this->assertInstanceOf('Yoeunes\Notify\Config\ConfigInterface', $config);
         $this->assertEquals(array('notifier' => 'toastr', 'scripts' => array('jquery.js', 'notify.js'),
             'styles' => array('bootstrap.css', 'notify.css'),
-            'options' => array()), $config->get('notifiers.toastr'));
+            'options' => array(), ), $config->get('notifiers.toastr'));
     }
 
     private function getRawContainer()
@@ -58,11 +58,9 @@ final class NotifyToastrExtensionTest extends TestCase
         $toastrBundle = new NotifyToastrBundle();
         $toastrBundle->build($container);
 
-
         $container->getCompilerPassConfig()->setOptimizationPasses(array());
         $container->getCompilerPassConfig()->setRemovingPasses(array());
         $container->getCompilerPassConfig()->setAfterRemovingPasses(array());
-
 
         $container->loadFromExtension('notify', array());
 
