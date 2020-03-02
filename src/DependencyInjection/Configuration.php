@@ -5,7 +5,7 @@ namespace Yoeunes\Notify\Toastr\Symfony\DependencyInjection;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-class Configuration implements ConfigurationInterface
+final class Configuration implements ConfigurationInterface
 {
     /**
      * @inheritDoc
@@ -23,18 +23,21 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('notifier')
+                    ->defaultValue('toastr')
+                ->end()
                 ->arrayNode('scripts')
                     ->prototype('scalar')->end()
-                    ->defaultValue([
+                    ->defaultValue(array(
                         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
                         'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js',
-                    ])
+                    ))
                 ->end()
                 ->arrayNode('styles')
                     ->prototype('scalar')->end()
-                    ->defaultValue([
+                    ->defaultValue(array(
                         'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css'
-                    ])
+                    ))
                 ->end()
                 ->arrayNode('options')
                     ->ignoreExtraKeys(false)

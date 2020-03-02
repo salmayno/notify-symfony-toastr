@@ -1,15 +1,57 @@
 {
     "name": "yoeunes/notify-symfony-toastr",
     "type": "symfony-bundle",
-    "description": "Symfony Notify Toastr Bundle",
+    "description": "Symfony Notify adapter for toastr.js library for yoeunes/notify-symfony",
+    "keywords": [
+        "yoeunes",
+        "notify",
+        "php",
+        "laravel",
+        "symfony",
+        "Lumen",
+        "notifications",
+        "messages",
+        "alerts",
+        "pnotify",
+        "toastr ",
+        "bundle",
+        "flex"
+    ],
+    "homepage": "https://github.com/yoeunes/notify-symfony-toastr",
+    "authors": [
+        {
+            "name": "Younes Khoubza",
+            "email": "younes.khoubza@gmail.com",
+            "homepage": "https://github.com/yoeunes",
+            "role": "Developer"
+        }
+    ],
     "license": "MIT",
     "require": {
-        "yoeunes/notify-symfony": "^0.1",
-        "yoeunes/notify-toastr": "^0.1"
+        "php": ">=5.3",
+        "symfony/config": "^2.7|^3.0|^4.0|^5.0",
+        "symfony/dependency-injection": "^2.7|^3.0|^4.0|^5.0",
+        "symfony/http-kernel": "^2.7|^3.0|^4.0|^5.0",
+        "symfony/yaml": "^2.7|^3.0|^4.0|^5.0",
+        "yoeunes/notify-symfony": "dev-master",
+        "yoeunes/notify-toastr": "dev-master"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^2.7|^3.0|^4.0|^5.0"
     },
     "autoload": {
         "psr-4": {
             "Yoeunes\\Notify\\Toastr\\Symfony\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yoeunes\\Notify\\Toastr\\Symfony\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

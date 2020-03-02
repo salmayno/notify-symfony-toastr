@@ -1,9 +1,9 @@
 services:
     notify.toastr:
-        class: Yoeunes\Notify\Toastr\Factories\ToastrFactory
+        class: Yoeunes\Notify\Toastr\Factory\ToastrFactory
         arguments:
             - []
         tags:
             - { name: 'notify.notifier', alias: 'toastr' }
 
-    Yoeunes\Notify\Toastr\Factories\ToastrFactory: '@notify.toastr'
+    Yoeunes\Notify\Toastr\Factory\ToastrFactory: '@notify.toastr'

@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class NotifyToastrExtension extends Extension implements PrependExtensionInterface
+final class NotifyToastrExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * @inheritDoc
