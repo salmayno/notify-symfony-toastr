@@ -8,7 +8,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 final class Configuration implements ConfigurationInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
@@ -36,7 +36,7 @@ final class Configuration implements ConfigurationInterface
                 ->arrayNode('styles')
                     ->prototype('scalar')->end()
                     ->defaultValue(array(
-                        'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css'
+                        'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css',
                     ))
                 ->end()
                 ->arrayNode('options')
