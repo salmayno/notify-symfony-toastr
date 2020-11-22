@@ -1,6 +1,6 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Symfony\DependencyInjection;
+namespace Notify\Symfony\Toastr\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -23,7 +23,7 @@ final class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('notifier')
+                ->scalarNode('adapter')
                     ->defaultValue('toastr')
                 ->end()
                 ->arrayNode('scripts')

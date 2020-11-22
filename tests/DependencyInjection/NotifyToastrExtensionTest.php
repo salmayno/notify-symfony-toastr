@@ -4,11 +4,11 @@ namespace DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Yoeunes\Notify\Config\ConfigInterface;
-use Yoeunes\Notify\Symfony\DependencyInjection\NotifyExtension;
-use Yoeunes\Notify\Symfony\NotifyBundle;
-use Yoeunes\Notify\Toastr\Symfony\DependencyInjection\NotifyToastrExtension;
-use Yoeunes\Notify\Toastr\Symfony\NotifyToastrBundle;
+use Notify\Config\ConfigInterface;
+use Notify\Symfony\DependencyInjection\NotifyExtension;
+use Notify\Symfony\NotifyBundle;
+use Notify\Symfony\Toastr\DependencyInjection\NotifyToastrExtension;
+use Notify\Symfony\Toastr\NotifyToastrBundle;
 
 final class NotifyToastrExtensionTest extends TestCase
 {

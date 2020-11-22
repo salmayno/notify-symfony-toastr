@@ -1,9 +1,18 @@
 services:
-    notify.toastr:
-        class: Yoeunes\Notify\Toastr\Factory\ToastrFactory
+    notify.producer.toastr:
+        parent: 'notify.producer.abstract'
+        class: Notify\Toastr\Producer\ToastrProducer
+        tags:
+            - { name: 'notify.producer', alias: 'toastr' }
+
+    notify.renderer.toastr:
+        class: Notify\Toastr\Renderer\ToastrRenderer
         arguments:
             - []
+            - []
+            - []
         tags:
-            - { name: 'notify.notifier', alias: 'toastr' }
+            - { name: 'notify.renderer', alias: 'toastr' }
 
-    Yoeunes\Notify\Toastr\Factory\ToastrFactory: '@notify.toastr'
+    Notify\Toastr\Producer\ToastrProducer: '@notify.producer.toastr'
+    Notify\Toastr\Renderer\ToastrRenderer: '@notify.renderer.toastr'

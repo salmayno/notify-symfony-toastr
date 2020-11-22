@@ -1,6 +1,6 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Symfony\DependencyInjection;
+namespace Notify\Symfony\Toastr\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -21,7 +21,12 @@ final class NotifyToastrExtension extends Extension implements PrependExtensionI
         $loader->load('services.yaml');
 
         $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $toastrRenderer = $container->getDefinition('notify.renderer.toastr');
+        $toastrRenderer->replaceArgument(0, isset($config['scripts']) ? $config['scripts'] : []);
+        $toastrRenderer->replaceArgument(1, isset($config['styles']) ? $config['styles'] : []);
+        $toastrRenderer->replaceArgument(2, isset($config['options']) ? $config['options'] : []);
     }
 
     /**
@@ -30,14 +35,14 @@ final class NotifyToastrExtension extends Extension implements PrependExtensionI
     public function prepend(ContainerBuilder $container)
     {
         if (!$container->hasExtension('notify')) {
-            throw new \RuntimeException('[Yoeunes\Notify\Symfony\NotifyBundle] is not registered');
+            throw new \RuntimeException('[Notify\Symfony\NotifyBundle] is not registered');
         }
 
         $configs = $container->getExtensionConfig($this->getAlias());
         $config = $this->processConfiguration(new Configuration(), $configs);
 
         $container->prependExtensionConfig('notify', array(
-            'notifiers' => array(
+            'adapters' => array(
                 'toastr' => $config,
             ),
         ));

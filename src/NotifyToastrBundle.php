@@ -1,6 +1,6 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Symfony;
+namespace Notify\Symfony\Toastr;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
