@@ -8,9 +8,7 @@ services:
     notify.renderer.toastr:
         class: Notify\Toastr\Renderer\ToastrRenderer
         arguments:
-            - []
-            - []
-            - []
+            - '@notify.config'
         tags:
             - { name: 'notify.renderer', alias: 'toastr' }
 

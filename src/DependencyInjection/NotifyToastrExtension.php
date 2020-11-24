@@ -21,12 +21,7 @@ final class NotifyToastrExtension extends Extension implements PrependExtensionI
         $loader->load('services.yaml');
 
         $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
-        $toastrRenderer = $container->getDefinition('notify.renderer.toastr');
-        $toastrRenderer->replaceArgument(0, isset($config['scripts']) ? $config['scripts'] : []);
-        $toastrRenderer->replaceArgument(1, isset($config['styles']) ? $config['styles'] : []);
-        $toastrRenderer->replaceArgument(2, isset($config['options']) ? $config['options'] : []);
+        $this->processConfiguration($configuration, $configs);
     }
 
     /**
