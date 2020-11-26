@@ -23,9 +23,6 @@ final class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('adapter')
-                    ->defaultValue('toastr')
-                ->end()
                 ->arrayNode('scripts')
                     ->prototype('scalar')->end()
                     ->defaultValue(array(
@@ -40,6 +37,7 @@ final class Configuration implements ConfigurationInterface
                     ))
                 ->end()
                 ->arrayNode('options')
+                    ->prototype('variable')->end()
                     ->ignoreExtraKeys(false)
                 ->end()
             ->end()
